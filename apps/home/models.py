@@ -18,3 +18,18 @@ class Estudiante(models.Model):
     materias = models.ManyToManyField(Materia, related_name='estudiantes')
     usuario = models.CharField(max_length=20)
     constrasena = models.CharField(max_length=20)
+
+class Materia(models.Model):
+    nombreMateria = models.CharField(max_length=100) 
+    codigoMateria = models.CharField(max_length=100)
+    profesorAsignado = models.CharField(max_length=100)
+    cantCantidad = models.CharField(max_length=100)
+    horario = models.CharField(max_length=100)
+    ubicacion = models.CharField(max_length=100)
+    valoracion = models.CharField(max_length=100)
+    puntuacion = models.CharField(max_length=100)
+
+class Valoracion(models.Model):
+    asunto = models.CharField(max_length=100)
+    comentario = models.CharField(max_length=100)
+    puntuacion = models.CharField(max_length=100)
