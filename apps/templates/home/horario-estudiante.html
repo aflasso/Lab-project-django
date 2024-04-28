@@ -11,37 +11,9 @@
 </head>
 
 <body>
-  <header>
-    <div class="header-top">
-      <div class="left-header">
-        <label for="image-upload">
-            <img src="/static/assets/img/logo.png" alt="Imagen 1" class="logoHeader">
-        </label>
-      </div>
-      <div class="right-header">
-        <ul>
-            <li><a href="/horario/"><button class="header-button">Ver horario</button></a></li>
-            <li><a href="/home_estudiante/"><button class="header-button">Ver materias</button></a></li>
-            <li><a href="../perfilUsuario/perfilUsuario.html"><button class="header-button" id="verPerfil">Ver perfil</button></a></li>
-        </ul>
-        <div class="img-perfil">
-            <img src="/static/assets/img/perfil.png" alt="">
-        </div>
-
-        
-      </div>
-      <div class="desktop-menu inactive">
-        <div class="menu-options">
-          
-            <img src="/static/assets/img/perfil.png" alt="">
-          <button><a href="../perfilUsuario/perfilUsuario.html" class="title">Mi perfil</a></button>
-          <button><a href="../clasesCursadas/clasesCursadas.html">Clases Cursadas</a></button>
-          <button><a href="/login/login.html">Cerrar sesión</a></button>
-        </div>
-      </div>
-      
-    </div>
-  </header>
+    <header>
+        {{ header_html | safe }}
+    </header>
 
   <main>
     <br>
@@ -87,19 +59,7 @@
   </main>
 
   <footer>
-    <div class="footer-line"></div>
-    <div class="footer-content">
-      <div class="footer-left">
-        <p>Universidad de San Buenaventura Cali - www.usbcali.edu.co</p>
-        <p>Mayor Información o Sugerencias. Gmail: andresfelipe.lasso@gmail.com</p>
-      </div>
-      <div class="footer-right">
-        <a href="https://www.facebook.com"><img src="/static/assets/img/facebook.png" alt="Facebook"></a>
-        <a href="https://www.twitter.com"><img src="/static/assets/img/twitter.png" alt="Twitter"></a>
-        <a href="https://www.youtube.com"><img src="/static/assets/img/youtube.png" alt="YouTube"></a>
-        <a href="https://www.instagram.com"><img src="/static/assets/img/insta.png" alt="Instagram"></a>
-      </div>
-    </div>
+    {{ footer_html | safe }}
   </footer>
   <script src="main3.js" type="module"></script>
 </body>

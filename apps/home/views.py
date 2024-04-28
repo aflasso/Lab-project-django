@@ -43,85 +43,50 @@ def pages(request):
         return HttpResponse(html_template.render(context, request))
 
 def home_page(request):
+    footer_template = loader.get_template('home/footer.html')
+    footer_html = footer_template.render({}, request)
     html_template = loader.get_template('home/landing_page.html')
-    return HttpResponse(html_template.render({}, request))
+    return HttpResponse(html_template.render({'footer_html': footer_html}, request))
 
 def user_select(request):
 
     html_template = loader.get_template('accounts/login_select.html')
     return HttpResponse(html_template.render({}, request))
 
+def home_estudiante(request):
+    header_template = loader.get_template('home/header.html')
+    header_html = header_template.render({}, request)
 
+    footer_template = loader.get_template('home/footer.html')
+    footer_html = footer_template.render({}, request)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    html_template = loader.get_template('home/home_estudiante.html')
+    return HttpResponse(html_template.render({'header_html': header_html,'footer_html': footer_html}, request))
 
 def ver_materia(request):
+    header_template = loader.get_template('home/header.html')
+    header_html = header_template.render({}, request)
 
+    footer_template = loader.get_template('home/footer.html')
+    footer_html = footer_template.render({}, request)
     html_template = loader.get_template('home/horario-estudiante.html')
-    return HttpResponse(html_template.render({}, request))
+    return HttpResponse(html_template.render({'header_html': header_html,'footer_html': footer_html}, request))
 
 def agregar_materia(request):
+    header_template = loader.get_template('home/header.html')
+    header_html = header_template.render({}, request)
 
+    footer_template = loader.get_template('home/footer.html')
+    footer_html = footer_template.render({}, request)
+    
     html_template = loader.get_template('home/agregar-materia.html')
-    return HttpResponse(html_template.render({}, request))
+    return HttpResponse(html_template.render({'header_html': header_html,'footer_html': footer_html}, request))
 
 def eliminar_materia(request):
+    header_template = loader.get_template('home/header.html')
+    header_html = header_template.render({}, request)
 
+    footer_template = loader.get_template('home/footer.html')
+    footer_html = footer_template.render({}, request)
     html_template = loader.get_template('home/eliminar-materia.html')
-    return HttpResponse(html_template.render({}, request))
+    return HttpResponse(html_template.render({'header_html': header_html,'footer_html': footer_html}, request))
