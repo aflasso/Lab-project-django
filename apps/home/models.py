@@ -19,14 +19,3 @@ class Materia():
     ubicacion = models.CharField(max_length=100)
     valoracion = models.CharField(max_length=100)
     puntuacion = models.CharField(max_length=100)
-    
-class Programa(models.Model):
-    nombre = models.CharField(max_length=100)
-    pass
-
-class Semestre(models.Model):
-    programa = models.ForeignKey(Programa, on_delete=models.CASCADE, related_name="semestres")
-    numeroSemestre = models.IntegerField()
-    cantidadCreditos = models.IntegerField()
-    materias = models.
-    
