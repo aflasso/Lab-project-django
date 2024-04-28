@@ -1,74 +1,28 @@
-{% extends "layouts/base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/login_css.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+    <title>Mi LMS</title>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Bienvenidos</h1>
+        <p class="subtext">Inicia sesión para continuar</p>
+        <form id="formulario">
+            <label for="username" >Usuario:</label>
+            <input type="text" id="usuario" name="username" required>
+            <label for="password">Clave:</label>
+            <input type="password" placeholder="******" id="contrasena" name="password" required>
 
-{% block title %} Login {% endblock %} 
-
-<!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
-
-{% block content %}
-
-  <div class="row">
-    <div class="col-md-5">
-      <div class="card">
-        <div class="card-header card-header-primary">
-          <h4 class="card-title">
-            Login
-          </h4>
-        </div>
-        <div class="card-body">
-
-          <h6 class="card-category">
-              {% if msg %}
-                <span class="text-danger">{{ msg | safe }}</span>
-              {% else %}
-                  Add your credentials
-              {% endif %}  
-          </h6>
-          
-          <br />
-
-          <form role="form" method="post" action="">
-              
-            {% csrf_token %} 
-
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label class="bmd-label-floating">Username</label>
-                  {{ form.username }}
-                </div>
-              </div>
+            <div class="div-button">
+                <button type="submit">Iniciar Sesión</button>
             </div>
-
-            <br />
-
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label class="bmd-label-floating">Password</label>
-                  {{ form.password }}
-                </div>
-              </div>
-            </div>
-
-            <br />
-
-            <button type="submit" name="login" class="btn btn-primary pull-left">Login</button>
-
-            &nbsp; &nbsp; 
-            <span class="pull-right">
-              Don't have an account? <a href="{% url 'register' %}" class="text-primary">Create</a>
-            </span>
-
-            <div class="clearfix"></div>
-
-          </form>
-        </div>
-      </div>
+        </form>
     </div>
-  </div>
-
-{% endblock content %}
-
-<!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}
+</body>
+<script src="iniciarSesionEst.js" type="module"></script>
+</html>

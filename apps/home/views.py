@@ -10,15 +10,14 @@ from django.template import loader
 from django.urls import reverse
 
 
-@login_required(login_url="/login/")
+@login_required(login_url="/landing/")
 def index(request):
     context = {'segment': 'index'}
 
     html_template = loader.get_template('home/index.html')
     return HttpResponse(html_template.render(context, request))
 
-
-@login_required(login_url="/login/")
+@login_required(login_url="/landing/")
 def pages(request):
     context = {}
     # All resource paths end in .html.
@@ -42,3 +41,12 @@ def pages(request):
     except:
         html_template = loader.get_template('home/page-500.html')
         return HttpResponse(html_template.render(context, request))
+
+def home_page(request):
+    html_template = loader.get_template('home/landing_page.html')
+    return HttpResponse(html_template.render({}, request))
+
+def user_select(request):
+
+    html_template = loader.get_template('accounts/login_select.html')
+    return HttpResponse(html_template.render({}, request))
