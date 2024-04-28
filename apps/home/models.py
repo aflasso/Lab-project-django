@@ -9,6 +9,13 @@ from django.contrib.auth.models import User
 # Create your models here
 
 class estudiante():
-    
-    
     pass
+class Materia():
+    nombreMateria = models.CharField(max_length=100) 
+    codigoMateria = models.CharField(max_length=100)
+    profesorAsignado = models.CharField(max_length=100)
+    cantCantidad = models.CharField(max_length=100)
+    horario = models.CharField(max_length=100)
+    ubicacion = models.CharField(max_length=100)
+    valoracion = models.CharField(max_length=100)
+    puntuacion = models.CharField(max_length=100)
