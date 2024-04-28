@@ -33,3 +33,13 @@ class Valoracion(models.Model):
     asunto = models.CharField(max_length=100)
     comentario = models.CharField(max_length=100)
     puntuacion = models.CharField(max_length=100)
+
+class Profesor(models.Model):
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
+    correo = models.EmailField(max_length=50)
+    codigo = models.CharField(max_length=30)
+    facultad = models.CharField(max_length=50)
+    usuario = models.CharField(max_length=50)
+    contrasena = models.CharField(max_length=50)
+    materias = models.ManyToManyField(Materia, related_name = 'profesor') #Corregir si es necesario
