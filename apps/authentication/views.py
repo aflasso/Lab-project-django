@@ -6,6 +6,9 @@ Copyright (c) 2019 - present AppSeed.us
 # Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+
+from apps.authentication.registroForm import RegistroForm
+from apps.home.models import Estudiante
 from .forms import LoginForm, SignUpForm
 
 
@@ -36,21 +39,25 @@ def register_user(request):
     success = False
 
     if request.method == "POST":
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get("username")
-            raw_password = form.cleaned_data.get("password1")
-            user = authenticate(username=username, password=raw_password)
+        formulario = RegistroForm(request.POST)
+        if formulario.is_valid():
+            # Guardar usuario
+            usuario = formulario.cleaned_data['usuario'].save()
 
-            msg = 'User created - please <a href="/login">login</a>.'
-            success = True
+            # Guardar estudiante
+            estudiante = Estudiante.objects.create(
+                codigo=usuario,
+                nombre=formulario.cleaned_data['nombre'],
+                apellido=formulario.cleaned_data['apellido'],
+                programa_academico_id=formulario.cleaned_data['programa_academico_id'],
+                # Otros campos del estudiante
+            )
 
-            # return redirect("/login/")
+            return redirect("/login/")
 
         else:
             msg = 'Form is not valid'
     else:
-        form = SignUpForm()
+        form = RegistroForm()
 
     return render(request, "accounts/register.html", {"form": form, "msg": msg, "success": success})
