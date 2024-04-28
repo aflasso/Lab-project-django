@@ -11,6 +11,13 @@ urlpatterns = [
     # The home page
     path('', views.index, name='home'),
 
+    path('landing/', views.home_page, name='landing_page'),
+
+    path("selecUser/", views.user_select, name='user_select'),
+    path("home_estudiante/", views.home_estudiante, name='home_estudiante'),
+    path("horario/", views.ver_materia, name='ver_materia'),
+    path("agregarMateria/", views.agregar_materia, name='agregar_materia'),
+    path("eliminarMateria/", views.eliminar_materia, name='eliminar_materia'),
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),
 

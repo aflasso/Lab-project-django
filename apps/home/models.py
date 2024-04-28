@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 # Create your models here
 
 class Profesor(models.Model):
-    codigo = models.IntegerField(max_length=30, primary_key=True)
+    codigo = models.IntegerField(primary_key=True)
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     correo = models.EmailField(max_length=50)
@@ -21,12 +21,13 @@ class Programa(models.Model):
     nombre = models.CharField(max_length=100)
 
 class Semestre(models.Model):
+    codigo = models.IntegerField(primary_key=True)
     programa = models.ForeignKey(Programa, on_delete=models.CASCADE, related_name="semestres")
     numeroSemestre = models.IntegerField()
     cantidadCreditos = models.IntegerField()
 
 class Materia(models.Model):
-    codigoMateria = models.CharField(max_length=100, primary_key=True)
+    codigoMateria = models.IntegerField(primary_key=True)
     nombreMateria = models.CharField(max_length=100) 
     profesorAsignado = models.ForeignKey(Profesor, on_delete=models.CASCADE, related_name='materias')
     cantCreditos = models.IntegerField()
@@ -37,7 +38,7 @@ class Materia(models.Model):
 
 class Estudiante(models.Model):
 
-    codigo = models.IntegerField(max_length=30, primary_key=True)
+    codigo = models.IntegerField(primary_key=True)
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     correo = models.EmailField()
