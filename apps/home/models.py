@@ -7,6 +7,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here
+
 class Profesor(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
@@ -16,6 +17,14 @@ class Profesor(models.Model):
     usuario = models.CharField(max_length=50)
     contrasena = models.CharField(max_length=50)
 
+class Programa(models.Model):
+    nombre = models.CharField(max_length=100)
+
+class Semestre(models.Model):
+    programa = models.ForeignKey(Programa, on_delete=models.CASCADE, related_name="semestres")
+    numeroSemestre = models.IntegerField()
+    cantidadCreditos = models.IntegerField()
+
 class Materia(models.Model):
     nombreMateria = models.CharField(max_length=100) 
     codigoMateria = models.CharField(max_length=100)
@@ -24,15 +33,7 @@ class Materia(models.Model):
     horario = models.CharField(max_length=100)
     ubicacion = models.CharField(max_length=100)
     puntuacion = models.CharField(max_length=100)
-    Semestre = models.ForeignKey(Semestre, on_delete=models.CASCADE, related_name='materias')
-
-class Programa(models.Model):
-    nombre = models.CharField(max_length=100)
-
-class Semestre(models.Model):
-    programa = models.ForeignKey(Programa, on_delete=models.CASCADE, related_name="semestres")
-    numeroSemestre = models.IntegerField()
-    cantidadCreditos = models.IntegerField()
+    semestre = models.ForeignKey(Semestre, on_delete=models.CASCADE, related_name='materias')
 
 class Estudiante(models.Model):
 
