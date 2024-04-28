@@ -14,6 +14,7 @@ urlpatterns = [
     path('landing/', views.home_page, name='landing_page'),
 
     path("selecUser/", views.user_select, name='user_select'),
+    path("home_estudiante/", views.home_estudiante, name='home_estudiante'),
 
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),

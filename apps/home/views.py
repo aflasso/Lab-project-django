@@ -50,3 +50,13 @@ def user_select(request):
 
     html_template = loader.get_template('accounts/login_select.html')
     return HttpResponse(html_template.render({}, request))
+
+def home_estudiante(request):
+    header_template = loader.get_template('home/header.html')
+    header_html = header_template.render({}, request)
+
+    footer_template = loader.get_template('home/footer.html')
+    footer_html = footer_template.render({}, request)
+
+    html_template = loader.get_template('home/home_estudiante.html')
+    return HttpResponse(html_template.render({'header_html': header_html,'footer_html': footer_html}, request))
