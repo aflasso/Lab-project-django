@@ -8,19 +8,16 @@ from django.contrib.auth.models import User
 
 # Create your models here
 
-class estudiante():
-    pass
+class Estudiante(models.Model):
 
-class Profesor(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
-    correo = models.EmailField(max_length=50)
     codigo = models.CharField(max_length=30)
-    facultad = models.CharField(max_length=50)
-    usuario = models.CharField(max_length=50)
-    contrasena = models.CharField(max_length=50)
-    materias = models.ManyToManyField(Materia, related_name = 'profesor')
-
+    correo = models.EmailField()
+    programa_academico = models.ForeignKey(Programa, on_delete=models.CASCADE, related_name='estudiantes')
+    materias = models.ManyToManyField(Materia, related_name='estudiantes')
+    usuario = models.CharField(max_length=20)
+    constrasena = models.CharField(max_length=20)
 
 class Materia(models.Model):
     nombreMateria = models.CharField(max_length=100) 
@@ -32,3 +29,18 @@ class Materia(models.Model):
     valoracion = models.CharField(max_length=100)
     puntuacion = models.CharField(max_length=100)
 
+class Valoracion(models.Model):
+    asunto = models.CharField(max_length=100)
+    comentario = models.CharField(max_length=100)
+    puntuacion = models.CharField(max_length=100)
+
+class Profesor(models.Model):
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
+    correo = models.EmailField(max_length=50)
+    codigo = models.CharField(max_length=30)
+    facultad = models.CharField(max_length=50)
+    usuario = models.CharField(max_length=50)
+    contrasena = models.CharField(max_length=50)
+    materias = models.ManyToManyField(Materia, related_name = 'profesor') #Corregir si es necesario
+    
