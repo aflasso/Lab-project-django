@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/eliminarMateria.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+        rel="stylesheet">
+    <title>Página Principal</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-top">
+          <div class="left-header">
+            <label for="image-upload">
+                <img src="/static/assets/img/logo.png" alt="Imagen 1" class="logoHeader">
+            </label>
+          </div>
+          <div class="right-header">
+            <ul>
+                <li><a href="/horario/"><button class="header-button">Ver horario</button></a></li>
+                <li><a href="/home_estudiante/"><button class="header-button">Ver materias</button></a></li>
+                <li><a href="../perfilUsuario/perfilUsuario.html"><button class="header-button" id="verPerfil">Ver perfil</button></a></li>
+            </ul>
+            <div class="img-perfil">
+                <img src="/static/assets/img/perfil.png" alt="">
+            </div>
+    
+            
+          </div>
+          <div class="desktop-menu inactive">
+            <div class="menu-options">
+              
+                <img src="/static/assets/img/perfil.png" alt="">
+              <button><a href="../perfilUsuario/perfilUsuario.html" class="title">Mi perfil</a></button>
+              <button><a href="../clasesCursadas/clasesCursadas.html">Clases Cursadas</a></button>
+              <button><a href="/login/login.html">Cerrar sesión</a></button>
+            </div>
+          </div>
+          
+        </div>
+      </header>
+
+    
+        <div class="titulo-page">
+            <p>Clases ingresadas</p>
+        </div>
+
+    <div class="contenedor-principal">
+        <div class="cuadrado-izquierdo">
+            <div class="caja-gris">
+                    
+            </div>
+        </div>
+
+        <div class="cuadrado-derecho">
+            <div class="clase-info active" >
+                <div class="img-profesor">
+                    <img src="/static/assets/img/profesor.png" alt="">
+                </div>
+                
+                <div class="info">
+                    <p class="nombre-materia"></p>
+                    <p class="nombre-profesor"></p>
+                    <p class="horario"></p>
+                    <p class="valoracion"></p>
+                </div>
+
+                <div class="boton-ver">
+                    <button>Eliminar materia</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+        
+    
+
+    <footer>
+        <div class="footer-line"></div>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>Universidad de San Buenaventura Cali - www.usbcali.edu.co</p>
+                <p>Mayor Información o Sugerencias. Gmail: andresfelipe.lasso@gmail.com</p>
+            </div>
+            <div class="footer-right">
+                <a href="https://www.facebook.com"><img src="/static/assets/img/facebook.png" alt="Facebook"></a>
+                <a href="https://www.twitter.com"><img src="/static/assets/img/twitter.png" alt="Twitter"></a>
+                <a href="https://www.youtube.com"><img src="/static/assets/img/youtube.png" alt="YouTube"></a>
+                <a href="https://www.instagram.com"><img src="/static/assets/img/insta.png" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+
+</html>

@@ -50,3 +50,78 @@ def user_select(request):
 
     html_template = loader.get_template('accounts/login_select.html')
     return HttpResponse(html_template.render({}, request))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def ver_materia(request):
+
+    html_template = loader.get_template('home/horario-estudiante.html')
+    return HttpResponse(html_template.render({}, request))
+
+def agregar_materia(request):
+
+    html_template = loader.get_template('home/agregar-materia.html')
+    return HttpResponse(html_template.render({}, request))
+
+def eliminar_materia(request):
+
+    html_template = loader.get_template('home/eliminar-materia.html')
+    return HttpResponse(html_template.render({}, request))
