@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 
 class estudiante():
     pass
-class Materia():
+class Materia(models.Model):
     nombreMateria = models.CharField(max_length=100) 
     codigoMateria = models.CharField(max_length=100)
     profesorAsignado = models.CharField(max_length=100)
@@ -18,4 +18,9 @@ class Materia():
     horario = models.CharField(max_length=100)
     ubicacion = models.CharField(max_length=100)
     valoracion = models.CharField(max_length=100)
+    puntuacion = models.CharField(max_length=100)
+
+class Valoracion(models.Model):
+    asunto = models.CharField(max_length=100)
+    comentario = models.CharField(max_length=100)
     puntuacion = models.CharField(max_length=100)
