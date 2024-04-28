@@ -9,10 +9,10 @@ from django.contrib.auth.models import User
 # Create your models here
 
 class Profesor(models.Model):
+    codigo = models.IntegerField(max_length=30, primary_key=True)
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     correo = models.EmailField(max_length=50)
-    codigo = models.CharField(max_length=30)
     facultad = models.CharField(max_length=50)
     usuario = models.CharField(max_length=50)
     contrasena = models.CharField(max_length=50)
@@ -26,8 +26,8 @@ class Semestre(models.Model):
     cantidadCreditos = models.IntegerField()
 
 class Materia(models.Model):
+    codigoMateria = models.CharField(max_length=100, primary_key=True)
     nombreMateria = models.CharField(max_length=100) 
-    codigoMateria = models.CharField(max_length=100)
     profesorAsignado = models.ForeignKey(Profesor, on_delete=models.CASCADE, related_name='materias')
     cantCreditos = models.IntegerField()
     horario = models.CharField(max_length=100)
@@ -37,9 +37,9 @@ class Materia(models.Model):
 
 class Estudiante(models.Model):
 
+    codigo = models.IntegerField(max_length=30, primary_key=True)
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
-    codigo = models.CharField(max_length=30)
     correo = models.EmailField()
     programa_academico = models.ForeignKey(Programa, on_delete=models.CASCADE, related_name='estudiantes')
     materias = models.ManyToManyField(Materia, through='Inscripcion', related_name='estudiantes')
