@@ -2,7 +2,7 @@
 """
 Copyright (c) 2019 - present AppSeed.us
 """
-from .models import Materia
+from .models import Materia, Profesor, Semestre
 from django import template
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
@@ -57,13 +57,20 @@ def user_select(request):
     html_template = loader.get_template('accounts/login_select.html')
     return HttpResponse(html_template.render({}, request))
 
+class MateriaForm(forms.ModelForm):
+    profesorAsignado = forms.ModelChoiceField(queryset=Profesor.objects.all(), label='Profesor Asignado', empty_label=None, to_field_name='nombre')
+    semestre = forms.ModelChoiceField(queryset=Semestre.objects.all(), label='Semestre', empty_label=None, to_field_name='numeroSemestre')
+
+    class Meta:
+        model = Materia
+        fields = '__all__'
 class MateriasListado(ListView):
     model = Materia
 
 class MateriaCrear(SuccessMessageMixin, CreateView):
     model = Materia
-    form = Materia
-    fields = '__all__'
+    form_class = MateriaForm
+    
     success_message = 'Materia creada exitosamente'
 
     def get_success_url(self):        
