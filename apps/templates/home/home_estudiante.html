@@ -19,7 +19,9 @@
 
   <section class="contenido-principal">
 
-    <a href="/agregarMateria/" type="button">Agregar</a> <!-- Boton crear -->
+    <a href="/agregarMateria/" type="button">
+      <button type="button" class="boton_agregar_materia">Agregar</button>
+    </a> <!-- Boton crear -->
       <div class="contenedor-item">
         {%for materia in object_list%}
 
@@ -27,11 +29,16 @@
           <div class="clase-info"><p>{{materia.nombreMateria}} - {{materia.profesorAsignado.nombre}} {{materia.profesorAsignado.apellido}}</p>
           </div>
 
-          <form method="POST" action="/eliminarMateria/{{materia.codigoMateria}}">
+          <form method="POST" action="/eliminarMateria/{{materia.codigoMateria}}" class="form_materia">
             {% csrf_token %}
-            <a href="/detallesMateria/{{materia.codigoMateria}}" title="Ver" type="button">Ver </a>
-            <a href="/editarMateria/{{materia.codigoMateria}}" title="Editar" type="button">Editar </a>
-            <button onclick="return eliminar();" type="submit">eliminar</button>
+            <a href="/detallesMateria/{{materia.codigoMateria}}" title="Ver" type="button">
+              <button type="button" class="boton_ver_materia">Ver</button>
+            </a>
+            <a href="/editarMateria/{{materia.codigoMateria}}" title="Editar" type="button">
+              <button type="button" class="boton_editar_materia">Editar</button>
+            </a>
+            
+            <button onclick="return eliminar();" type="submit" class="boton_eliminar_materia">eliminar</button>
           </form>
 
         </div>
