@@ -82,7 +82,7 @@ class MateriaActualizar(SuccessMessageMixin, UpdateView):
     def get_success_url(self):        
         return reverse('home_estudiante')
     
-class MateriaEliminar(SuccessMessageMixin, DetailView):
+class MateriaEliminar(SuccessMessageMixin, DeleteView):
     model = Materia
     form = Materia
     fields = '__all__'
