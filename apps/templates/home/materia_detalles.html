@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/static/assets/css/home_estudiante.css">
+  <link rel="stylesheet" type="text/css" href="/static/assets/css/header.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<title>Página Principal</title>
+</head>
+
+<body>
+  <header>
+    {%include 'include/header.html'%}
+  </header>
+
+  <section class="contenido-principal">
+
+    <h4>Detalles</h4>
+
+    <p><span class="txt_negrita">codigo:</span> {{object.codigoMateria}}</p>
+    <p><span class="txt_negrita">nombre:</span>  {{object.nombreMateria}}</p>
+    <p><span class="txt_negrita">profesor:</span> {{object.profesorAsignado.nombre}}</p>
+    
+    <p><span class="txt_negrita">numero creditos:</span> {{object.cantCreditos}}</p>
+    <p><span class="txt_negrita">horario:</span> {{object.horario}}</p>
+    <p><span class="txt_negrita">ubicacion:</span> {{object.ubicacion}}</p>
+    <p><span class="txt_negrita">puntuacion:</span> {{object.puntuacion}}</p>
+    <p><span class="txt_negrita">semestre:</span> {{object.semestre.numeroSemestre}}</p>
+
+    <!-- Botón para volver a la vista principal (Home) -->
+    <a href="/home_estudiante/" type="submit" class="btn btn-primary">Volver</a>
+
+  </section>
+
+  <footer>
+    {%include 'include/footer.html'%}
+  </footer>
+</body>
+
+</html>

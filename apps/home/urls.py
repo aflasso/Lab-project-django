@@ -21,7 +21,7 @@ urlpatterns = [
     path("agregarMateria/", MateriaCrear.as_view(template_name = "home/agregar_materia.html"), name='agregar_materia'),
     path('detallesMateria/<int:pk>', MateriaDetalle.as_view(template_name = "home/materia_detalles.html"), name='detalles'),
     path('editarMateria/<int:pk>', MateriaActualizar.as_view(template_name = "home/actualizar_materia.html"), name='actualizar'),
-    path("eliminarMateria/<int:pk>", MateriaEliminar.as_view, name='eliminar_materia'),
+    path("eliminarMateria/<int:pk>", MateriaEliminar.as_view(), name='eliminar_materia'),
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),
 
