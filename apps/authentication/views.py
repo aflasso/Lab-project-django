@@ -6,6 +6,9 @@ Copyright (c) 2019 - present AppSeed.us
 # Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+
+from apps.authentication.registroForm import RegistroForm
+from apps.home.models import Estudiante
 from .forms import LoginForm, SignUpForm
 
 
@@ -22,7 +25,7 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect("/")
+                return redirect("/home_estudiante/")
             else:
                 msg = 'Invalid credentials'
         else:
@@ -36,21 +39,29 @@ def register_user(request):
     success = False
 
     if request.method == "POST":
-        form = SignUpForm(request.POST)
+        form = RegistroForm(request.POST)
+
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get("username")
-            raw_password = form.cleaned_data.get("password1")
-            user = authenticate(username=username, password=raw_password)
+            # Guardar usuario
+            usuario = form.save()
+            print("sdafsagasdfgnsdfkljgbhnaierlugnbhaksjdhnbfglkadsfjhngbaksdjbf")
+            # Guardar estudiante
+            estudiante = Estudiante.objects.create(
+                codigo=form.cleaned_data['username'],
+                nombre=form.cleaned_data['nombre'],
+                apellido=form.cleaned_data['apellido'],
+                contrasena = form.cleaned_data['password1'],
+                correo = form.cleaned_data['email'],
+                programa_academico_id=form.cleaned_data['programa_academico_id'],
+                # Otros campos del estudiante
+            )
 
-            msg = 'User created - please <a href="/login">login</a>.'
-            success = True
-
-            # return redirect("/login/")
+            return redirect("/login/")
 
         else:
             msg = 'Form is not valid'
+            
     else:
-        form = SignUpForm()
+        form = RegistroForm()
 
     return render(request, "accounts/register.html", {"form": form, "msg": msg, "success": success})
