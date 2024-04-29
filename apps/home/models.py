@@ -44,7 +44,7 @@ class Estudiante(models.Model):
     correo = models.EmailField()
     programa_academico = models.ForeignKey(Programa, on_delete=models.CASCADE, related_name='estudiantes')
     materias = models.ManyToManyField(Materia, through='Inscripcion', related_name='estudiantes')
-    constrasena = models.CharField(max_length=20)
+    contrasena = models.CharField(max_length=20)
 
 
 class Inscripcion(models.Model):

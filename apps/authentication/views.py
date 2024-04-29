@@ -25,7 +25,7 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect("/")
+                return redirect("/home_estudiante/")
             else:
                 msg = 'Invalid credentials'
         else:
@@ -39,17 +39,20 @@ def register_user(request):
     success = False
 
     if request.method == "POST":
-        formulario = RegistroForm(request.POST)
-        if formulario.is_valid():
-            # Guardar usuario
-            usuario = formulario.cleaned_data['usuario'].save()
+        form = RegistroForm(request.POST)
 
+        if form.is_valid():
+            # Guardar usuario
+            usuario = form.save()
+            print("sdafsagasdfgnsdfkljgbhnaierlugnbhaksjdhnbfglkadsfjhngbaksdjbf")
             # Guardar estudiante
             estudiante = Estudiante.objects.create(
-                codigo=usuario,
-                nombre=formulario.cleaned_data['nombre'],
-                apellido=formulario.cleaned_data['apellido'],
-                programa_academico_id=formulario.cleaned_data['programa_academico_id'],
+                codigo=form.cleaned_data['username'],
+                nombre=form.cleaned_data['nombre'],
+                apellido=form.cleaned_data['apellido'],
+                contrasena = form.cleaned_data['password1'],
+                correo = form.cleaned_data['email'],
+                programa_academico_id=form.cleaned_data['programa_academico_id'],
                 # Otros campos del estudiante
             )
 
@@ -57,6 +60,7 @@ def register_user(request):
 
         else:
             msg = 'Form is not valid'
+            
     else:
         form = RegistroForm()
 

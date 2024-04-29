@@ -12,7 +12,8 @@
     <div class="login-container">
         <h1>Bienvenidos</h1>
         <p class="subtext">Inicia sesión para continuar</p>
-        <form id="formulario">
+        <form method="POST" id="formulario">
+            {% csrf_token %}
             <label for="username" >Usuario:</label>
             <input type="text" id="usuario" name="username" required>
             <label for="password">Clave:</label>
@@ -22,7 +23,13 @@
                 <a href="/home_estudiante/"></a><button type="submit">Iniciar Sesión</button>
             </div>
         </form>
+
+        <div class="div-button">               
+            <a href="/register/"><button>Registra</button></a>
+        </div>
+        {{msg}}
     </div>
+    
 </body>
 <script src="iniciarSesionEst.js" type="module"></script>
 </html>

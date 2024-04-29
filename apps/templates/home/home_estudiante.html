@@ -14,7 +14,7 @@
 
 <body>
   <header>
-    {{ header_html | safe }}
+    {%include 'include/header.html'%}
   </header>
 
   <section class="contenido-principal">
@@ -24,7 +24,7 @@
   </section>
 
   <footer>
-    {{ footer_html | safe }}
+    {%include 'include/footer.html'%}
   </footer>
 </body>
 

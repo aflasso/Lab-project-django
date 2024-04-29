@@ -2,12 +2,17 @@
 """
 Copyright (c) 2019 - present AppSeed.us
 """
-
+from .models import Materia
 from django import template
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+from django import forms
 
 
 @login_required(login_url="/landing/")
@@ -53,15 +58,15 @@ def user_select(request):
     html_template = loader.get_template('accounts/login_select.html')
     return HttpResponse(html_template.render({}, request))
 
-def home_estudiante(request):
-    header_template = loader.get_template('home/header.html')
-    header_html = header_template.render({}, request)
+class MateriasListado(ListView):
+    model = Materia
 
-    footer_template = loader.get_template('home/footer.html')
-    footer_html = footer_template.render({}, request)
-
-    html_template = loader.get_template('home/home_estudiante.html')
-    return HttpResponse(html_template.render({'header_html': header_html,'footer_html': footer_html}, request))
+class MateriaCrear(SuccessMessageMixin, CreateView):
+    model = Materia
+    form = Materia
+    fields = '__all__'
+    success_message = 'Materia creada exitosamente'
+    
 
 def ver_materia(request):
     header_template = loader.get_template('home/header.html')
