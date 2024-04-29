@@ -24,11 +24,16 @@
         {%for materia in object_list%}
 
         <div class="clase-card" ><img src="/static/assets/img/banner_materia.jpg">
-          <div class="clase-info"><p>{{materia.nombreMateria}} - {{materia.profesorAsignado}}</p>
+          <div class="clase-info"><p>{{materia.nombreMateria}} - {{materia.profesorAsignado.nombre}} {{materia.profesorAsignado.apellido}}</p>
           </div>
 
-          <a href="/detallesMateria/{{materia.codigoMateria}}" title="Ver" type="button">Ver </a>
-          <a href="editarMateria/{{materia.codigoMateria}}" title="Editar" type="button">Editar </a>
+          <form method="POST" action="/eliminarMateria/{{materia.codigoMateria}}">
+            {% csrf_token %}
+            <a href="/detallesMateria/{{materia.codigoMateria}}" title="Ver" type="button">Ver </a>
+            <a href="/editarMateria/{{materia.codigoMateria}}" title="Editar" type="button">Editar </a>
+            <button onclick="return eliminar();" type="submit">eliminar</button>
+          </form>
+
         </div>
 
         {% endfor %}

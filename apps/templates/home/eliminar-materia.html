@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        {{ header_html | safe }}
+        {%include 'include/header.html'%}
     </header>
 
     
@@ -53,7 +53,7 @@
     
 
     <footer>
-        {{ footer_html | safe }}
+        {%include 'include/footer.html'%}
       </footer>
     <script src="script.js"></script>
 </body>
