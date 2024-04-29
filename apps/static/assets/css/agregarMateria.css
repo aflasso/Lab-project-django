@@ -262,3 +262,44 @@ footer {
     height: 50px;
     margin: 7px;
 }
+
+/* Estilos para el contenedor del formulario */
+.form_materia_crear {
+    width: 400px; /* Ancho del formulario */
+    margin: 50px auto; /* Centrar el formulario horizontalmente */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  /* Estilos para las etiquetas de los campos */
+  .txt_negrita {
+    font-weight: bold; /* Texto en negrita */
+  }
+  
+  /* Estilos para los campos de entrada */
+  .form-group input[type="text"],
+  .form-group input[type="number"],
+  .form-group select {
+    width: 100%; /* Ancho completo del contenedor */
+    padding: 15px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    border: 1px solid #ccc; /* Borde con color gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    box-sizing: border-box; /* El tamaño incluye el borde y el relleno */
+    margin-bottom: 10px; /* Espaciado inferior entre campos */
+  }
+  
+  /* Estilos para el botón de enviar */
+  .form_materia_crear button[type="submit"] {
+    background-color: #FF6E1A; /* Color de fondo verde */
+    color: white; /* Texto en blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor al pasar sobre el botón */
+  }
+  
+  /* Estilos para el botón de enviar al pasar el cursor */
+  .form_materia_crear button[type="submit"]:hover {
+    background-color: #ca5511; /* Color de fondo verde más oscuro */
+  }
