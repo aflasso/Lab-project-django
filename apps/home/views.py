@@ -66,6 +66,32 @@ class MateriaCrear(SuccessMessageMixin, CreateView):
     form = Materia
     fields = '__all__'
     success_message = 'Materia creada exitosamente'
+
+    def get_success_url(self):        
+        return reverse('home_estudiante') # Redireccionamos a la vista principal 'leer'
+
+class MateriaDetalle(DetailView):
+    model = Materia
+
+class MateriaActualizar(SuccessMessageMixin, UpdateView):
+    model = Materia
+    form = Materia
+    fields = '__all__'
+    success_message = 'Materia Actualizada'
+
+    def get_success_url(self):        
+        return reverse('home_estudiante')
+    
+class MateriaEliminar(SuccessMessageMixin, DetailView):
+    model = Materia
+    form = Materia
+    fields = '__all__'
+
+    def get_success_url(self): 
+        success_message = 'Materia Eliminada Correctamente !' # Mostramos este Mensaje luego de Editar una Arepa 
+        messages.success(self.request, (success_message))       
+        return reverse('home_estudiante') # Redireccionamos a la vista principal 'leer'
+
     
 
 def ver_materia(request):

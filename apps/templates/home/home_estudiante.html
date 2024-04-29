@@ -18,16 +18,26 @@
   </header>
 
   <section class="contenido-principal">
-    <div class="contenedor-item">
 
-    </div>
+    <a href="/agregarMateria/" type="button">Agregar</a> <!-- Boton crear -->
+      <div class="contenedor-item">
+        {%for materia in object_list%}
+
+        <div class="clase-card" ><img src="/static/assets/img/banner_materia.jpg">
+          <div class="clase-info"><p>{{materia.nombreMateria}} - {{materia.profesorAsignado}}</p>
+          </div>
+
+          <a href="/detallesMateria/{{materia.codigoMateria}}" title="Ver" type="button">Ver </a>
+          <a href="editarMateria/{{materia.codigoMateria}}" title="Editar" type="button">Editar </a>
+        </div>
+
+        {% endfor %}
+      </div>
   </section>
 
   <footer>
     {%include 'include/footer.html'%}
   </footer>
 </body>
-
-<script src="./main.js" type="module"></script>
 
 </html>

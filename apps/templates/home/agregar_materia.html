@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        {{ header_html | safe }}
+      {%include 'include/header.html'%}
     </header>
 
   <section class="contenido-principal">
@@ -30,17 +30,14 @@
     </div>
 
     <div class="contenedor-right">
-      <ul class="button-list">
-
-      </ul>
+      {{form.as_p}}
     </div>
 
   </section>
 
   <footer>
-    {{ footer_html | safe }}
+    {%include 'include/footer.html'%}
   </footer>
-  <script src="./main.js" type="module"></script>
 </body>
 
 </html>
