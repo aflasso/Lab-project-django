@@ -15,7 +15,7 @@ urlpatterns = [
     path('landing/', views.home_page, name='landing_page'),
 
     path("selecUser/", views.user_select, name='user_select'),
-    path("horario/", views.ver_materia, name='ver_materia'),
+   # path("horario/", views.ver_materia, name='ver_materia'),
 
     path("home_estudiante/", MateriasListado.as_view(template_name = "home/home_estudiante.html"), name='home_estudiante'),
     path("agregarMateria/", MateriaCrear.as_view(template_name = "home/agregar_materia.html"), name='agregar_materia'),
