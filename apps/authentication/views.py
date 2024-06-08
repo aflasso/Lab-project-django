@@ -49,8 +49,9 @@ def register_user(request):
             estudiante = Estudiante.objects.create(
                 codigo=form.cleaned_data['username'],
                 nombre=form.cleaned_data['nombre'],
-                apellido=form.cleaned_data['apellido'],
                 contrasena = form.cleaned_data['password1'],
+                apellido=form.cleaned_data['apellido'],
+                
                 correo = form.cleaned_data['email'],
                 programa_academico_id=form.cleaned_data['programa_academico_id'],
                 # Otros campos del estudiante
