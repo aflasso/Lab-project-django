@@ -71,12 +71,8 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE' : 'django.db.backends.postgresql_psycopg2',
-        'NAME' : 'studleDb',
-        'USER' : 'fl0user',
-        'PASSWORD' : 'eFmk2ab4CRZY',
-        'HOST' : 'ep-purple-fire-a12g0nnc.ap-southeast-1.aws.neon.fl0.io',
-        'PORT' : '5432', #si lo dejas vacío tomara el puerto por default
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sql',
     }
 }
 
