@@ -16,6 +16,8 @@ class Profesor(models.Model):
     facultad = models.CharField(max_length=50)
     usuario = models.CharField(max_length=50)
     contrasena = models.CharField(max_length=50)
+    def __str__(self):
+        return self.nombre
 
 class Programa(models.Model):
     nombre = models.CharField(max_length=100)
@@ -25,6 +27,9 @@ class Semestre(models.Model):
     programa = models.ForeignKey(Programa, on_delete=models.CASCADE, related_name="semestres")
     numeroSemestre = models.IntegerField()
     cantidadCreditos = models.IntegerField()
+
+    def __str__(self):
+        return str(self.numeroSemestre)
 
 class Materia(models.Model):
     codigoMateria = models.IntegerField(primary_key=True)

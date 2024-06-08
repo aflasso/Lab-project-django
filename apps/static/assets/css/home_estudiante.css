@@ -64,3 +64,18 @@ footer {
     position: relative;
 }
 
+
+.form_materia a[type="button"]{
+    background-color: #FF6E1A; /* Color de fondo verde */
+    color: white; /* Texto en blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor al pasar sobre el botón */
+  }
+  
+  /* Estilos para el botón de enviar al pasar el cursor */
+  .form_materia a[type="button"]:hover {
+    background-color: #ca5511; /* Color de fondo verde más oscuro */
+  }
+
