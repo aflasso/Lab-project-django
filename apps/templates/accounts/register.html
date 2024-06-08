@@ -4,32 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/registro.css">
     <title>Registro de Usuario y Estudiante</title>
 </head>
 <body>
-    <h1>Registro de Usuario y Estudiante</h1>
-
-    <form method="post">
-        {% csrf_token %}
-        
-        {{form.as_p}}
-
-        <!-- {{ form.username.label_tag }}
-        {{ form.username }}
-        {{ form.password1.label_tag }}
-        {{ form.password1 }}
-        {{ form.password2.label_tag }}
-        {{ form.password2 }}
-
-
-        {{ form.nombre.label_tag }}
-        {{ form.nombre }}
-        {{ form.apellido.label_tag }}
-        {{ form.apellido }}
-        {{ form.programa_academico_id.label_tag }}
-        {{ form.programa_academico_id }} -->
-
-        {{msg}}
-
-        <button type="submit">Registrar</button>
- 
+    <div class="header-background"></div>
+    <div class="content">
+        <h1>Registro de Usuario y Estudiante</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+</body>
+</html>
